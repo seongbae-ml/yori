@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Log;
 use App\UserItem;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,7 @@ class UserItemsController extends Controller {
 	 */
 	public function create()
 	{
-		//return view('useritems.create');
+		return view('useritems.create');
 	}
 
 	/**
@@ -47,9 +48,17 @@ class UserItemsController extends Controller {
 	 */
 	public function show($id)
 	{
-		//return view('useritems.show', compact('useritem'));
+		Log::info('yorilog-' . $id);
+
+		$useritem = UserItem::find($id);
+
+		return view('useritems.show', compact('useritem'));
 		//$useritems = UserItem::all();
-		return view('useritems.index', compact('useritem'));
+
+		//$useritems = UserItem::all();
+		//return view('useritems.index', compact('useritems'));
+		
+		//return view('useritems.index', compact('useritem'));
 	}
 
 	/**

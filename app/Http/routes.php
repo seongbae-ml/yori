@@ -26,15 +26,25 @@ Route::get('/authtest', array('before'=>'auth.basic',function()
 }
 	));
 
+Route::match(['get','post'],'seong', function()
+{
+
+	return 'Hello Seong';
+
+}
+	
+	);
 
 Route::resource('categories','CategoriesController');
 //Route::resource('items','ItemsController');
 Route::resource('useritems','UserItemsController');
 Route::resource('categories.items', 'ItemsController');
 
-Route::model('useritems','UserItem');
+Route::model('useritem','UserItem');
 
+/*
 Route::get('useritems/{useritems}', function(App\UserItem $useritem)
 {
     //
 });
+*/
