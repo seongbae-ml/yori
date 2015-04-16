@@ -35,6 +35,25 @@
 			.quote {
 				font-size: 24px;
 			}
+
+			.marketing-launch-button {
+				background-color:#fddd87;
+				border-radius:10px;
+				border:0;
+				border-bottom:3px solid #fccf55;
+				font-size:20px;
+				padding:15px;
+				color:#34495e
+			}
+
+			button,html input[type=button],input[type=reset],input[type=submit] {
+				-webkit-appearance:button;
+				cursor:pointer;
+				border: none;
+    			outline:none;
+			}
+
+
 		</style>
 	</head>
 	<body>
@@ -42,6 +61,9 @@
 			<div class="content">
 				<div class="title">Yori</div>
 				<div class="quote">Never Throw Food Away</div>
+				<div>
+					<a href="/auth/login"><button class="marketing-launch-button">Get Started Now</button></a> 
+					<a href="/auth/register"><button class="marketing-launch-button">Register</button></a></div>
 			</div>
 		</div>
 	</body>

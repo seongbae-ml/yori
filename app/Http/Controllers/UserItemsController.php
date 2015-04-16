@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Log;
+use App\Form;
 use App\UserItem;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -67,9 +68,10 @@ class UserItemsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit(UserItem $useritem)
+	public function edit($id)
 	{
-		//return view('useritems.edit', compact('useritem'));
+		$useritem = UserItem::find($id);
+		return view('useritems.edit', compact('useritem'));
 	}
 
 	/**
@@ -78,9 +80,11 @@ class UserItemsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(UserItem $useritem)
+	public function update($id)
 	{
-		//return view('useritems.update', compact('useritem'));
+		$useritem = UserItem::find($id);
+        $useritem -> notes = $request->notes;
+        $useritem -> save();
 	}
 
 	/**
