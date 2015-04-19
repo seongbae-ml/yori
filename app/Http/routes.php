@@ -38,9 +38,20 @@ Route::match(['get','post'],'seong', function()
 Route::resource('categories','CategoriesController');
 //Route::resource('items','ItemsController');
 Route::resource('useritems','UserItemsController');
+Route::resource('mydishes','MyDishController');
 Route::resource('categories.items', 'ItemsController');
 
 Route::model('useritem','UserItem');
+
+
+/*
+Route::get('useritems', 'UserItemsController@index');
+Route::get('useritems/create', 'UserItemsController@create');
+Route::post('useritems/create', 'UserItemsController@store');
+Route::get('useritems/{id}/edit', 'UserItemsController@edit');
+Route::post('useritems/{id}/edit', 'UserItemsController@update');
+Route::post('useritems/{id}/delete', 'UserItemsController@delete');
+*/
 
 /*
 Route::get('useritems/{useritems}', function(App\UserItem $useritem)

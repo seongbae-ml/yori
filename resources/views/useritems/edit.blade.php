@@ -11,15 +11,12 @@
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> Add New</a>
 
-                    <a href="{{{ URL::to('useritems/create') }}}"
-                       class="btn btn-sm  btn-primary iframe"><span
-                                class="glyphicon glyphicon-plus-sign"></span> Find Dishes</a>
                 </div>
             </div>
         </h3>
     </div>
 
-	{!! Form::model($useritem, ['method' => 'PATCH', 'route' => ['useritems.update', $useritem->slug]]) !!}
+	{!! Form::model($useritem, ['method' => 'PATCH', 'route' => ['useritems.update', $useritem->id]]) !!}
         @include('useritems/partials/_form', ['submit_text' => 'Submit'])
     {!! Form::close() !!}
     

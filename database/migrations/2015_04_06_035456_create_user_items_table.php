@@ -17,6 +17,9 @@ class CreateUserItemsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->integer('item_id');
+			$table->string('name');
+			$table->date('expire_date');
+			$table->date('purchase_date');
 			$table->string('notes');
 			$table->timestamps();
 		});

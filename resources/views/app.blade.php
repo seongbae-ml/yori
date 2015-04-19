@@ -27,6 +27,10 @@
           href="{{asset('assets/site/css/lightbox.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap-theme.min.css')}}">
 
+    <link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
     @yield('styles')
 
     <!-- Fonts -->
@@ -44,6 +48,14 @@
 <body>
 @include('partials.nav')
 
+@if ($errors->any())
+    <div class='flash alert-danger'>
+        @foreach ( $errors->all() as $error )
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
 <div class="container">
 @yield('content')
 </div>
@@ -51,6 +63,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('/js/all.js') }}"></script>
+<script src="{{ asset('/js/vendor.js') }}"></script>
 {{--<script src="{{ elixir('js/all.js') }}"></script>--}}
 
 {{-- TODO: Incorporate into elixir workflow. --}}
@@ -61,6 +74,9 @@
     $('#flash-overlay-modal').modal();
     $('div.alert').not('.alert-danger').delay(3000).slideUp(300);
 </script>
+
+<script src="{{asset('/js/bootstrap-datepicker.js')}}"></script>
+
 @yield('scripts')
 
 </body>

@@ -7,8 +7,15 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class UserItemsController extends Controller {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -28,7 +35,8 @@ class UserItemsController extends Controller {
 	 */
 	public function create()
 	{
-		return view('useritems.create');
+		$useritem = null;
+		return view('useritems.create', compact('useritem'));
 	}
 
 	/**
@@ -36,9 +44,21 @@ class UserItemsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateUserItemRequest $request)
 	{
 		//
+
+		$this->validate($request, [
+	        'name' => 'required'
+	    ]);
+
+		
+	
+		$input = Input::all();
+
+		
+		UserItem::create($input);
+		return Redirect::to('/useritems')->with('message','Item successfully created');
 	}
 
 	/**
@@ -83,8 +103,10 @@ class UserItemsController extends Controller {
 	public function update($id)
 	{
 		$useritem = UserItem::find($id);
-        $useritem -> notes = $request->notes;
-        $useritem -> save();
+		$input = array_except(Input::all(),'_method');
+		$useritem->update($input);
+
+        return Redirect::to('/useritems');
 	}
 
 	/**
@@ -93,9 +115,12 @@ class UserItemsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy(UserItem $useritem)
+	public function destroy($id)
 	{
-		//
+		$useritem = UserItem::find($id);
+        $useritem->delete();
+
+        return Redirect::to('/useritems');
 	}
 
 }

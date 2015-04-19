@@ -14,7 +14,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="{{ (Request::is('/') ? 'active' : '') }}">
-                    <a href="{!! URL::to('useritems') !!}"><i class="fa fa-home"></i> My Dashboard</a>
+                    <a href="{!! URL::to('useritems') !!}"><i class="fa fa-user"></i> My Refridgerator</a>
+                </li>
+                <li class="{{ (Request::is('mydishes') ? 'active' : '') }}">
+                    <a href="{!! URL::to('mydishes') !!}"><i class="fa fa-cutlery"></i> My Dishes</a>
+                </li>
+                <li class="{{ (Request::is('settings') ? 'active' : '') }}">
+                    <a href="{!! URL::to('settings') !!}"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                </li>
+                <li class="{{ (Request::is('contact') ? 'active' : '') }}">
+                    <a href="{!! URL::to('contact') !!}"><i class="fa fa-question-circle"></i> Help</a>
                 </li>
             </ul>
 
@@ -31,13 +40,11 @@
                                     class="fa fa-caret-down"></i></a>
                         <ul class="dropdown-menu" role="menu">
                             @if(Auth::check())
-                                @if(Auth::user()->hasRole('admin'))
-                                    <li>
-                                        <a href="{!! URL::to('admin/dashboard') !!}"><i class="fa fa-tachometer"></i> Dashboard</a>
-                                    </li>
-                                @endif
                                 <li role="presentation" class="divider"></li>
                             @endif
+                            <li>
+                                <i class="fa fa-sign-out"></i> Logout
+                            </li>
                             <li>
                                 <a href="{!! URL::to('auth/logout') !!}"><i class="fa fa-sign-out"></i> Logout</a>
                             </li>

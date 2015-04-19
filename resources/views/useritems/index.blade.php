@@ -7,13 +7,9 @@
             My Items
             <div class="pull-right">
                 <div class="pull-right">
-                    <a href="{{{ URL::to('admin/news/create') }}}"
+                    <a href="{{{ URL::to('useritems/create') }}}"
                        class="btn btn-sm  btn-primary iframe"><span
                                 class="glyphicon glyphicon-plus-sign"></span> Add New</a>
-
-                    <a href="{{{ URL::to('admin/news/create') }}}"
-                       class="btn btn-sm  btn-primary iframe"><span
-                                class="glyphicon glyphicon-plus-sign"></span> Find Dishes</a>
                 </div>
             </div>
         </h3>
@@ -22,10 +18,35 @@
 	@if ( !$useritems->count() )
         You have no items
     @else
-        <ul>
+        <table id="table" class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Expires</th>
+            <th>Purchased</th>
+            <th>Action</th>
+        </tr>
+
+        
+        </thead>
+        <tbody>
             @foreach( $useritems as $useritem )
-                <li><a href="{{ route('useritems.show', $useritem->id) }}">{{ $useritem->notes }}</a></li>
+                <tr>
+                    <td><a href="{{ route('useritems.show', $useritem->id) }}">{{ $useritem->name }}</a></td>
+                    <td>{{ $useritem->expire_date }}</td>
+                    <td>{{ $useritem->purchase_date }}</td>
+                    <td>{!! Form::model($useritem, ['method' => 'DELETE', 'route' => ['useritems.destroy', $useritem->id]]) !!}
+                            <a href="/useritems/{{ $useritem->id }}/edit" class="btn btn-success btn-sm iframe cboxElement"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
+                            <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-danger btn-sm iframe cboxElement"><span class="glyphicon glyphicon-trash"></span>  Delete</a>
+                        {!! Form::close() !!}
+                </tr>
             @endforeach
-        </ul>
+        </tbody>
+    </table>
+        
     @endif
+
+    <ul>
+            
+        </ul>
 @endsection

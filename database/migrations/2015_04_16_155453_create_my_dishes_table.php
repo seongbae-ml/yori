@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUseritemsTable extends Migration {
+class CreateMyDishesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,9 @@ class CreateUseritemsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('useritems', function(Blueprint $table)
+		Schema::create('my_dishes', function(Blueprint $table)
 		{
-			//
 			$table->increments('id');
-			$table->integer('user_id');
-			$table->integer('item_id');
-			$table->string('notes');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +26,7 @@ class CreateUseritemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('useritems');
+		Schema::drop('my_dishes');
 	}
 
 }
