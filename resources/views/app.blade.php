@@ -62,9 +62,8 @@
 @include('partials.footer')
 
 <!-- Scripts -->
-<script src="{{ asset('/js/all.js') }}"></script>
 <script src="{{ asset('/js/vendor.js') }}"></script>
-{{--<script src="{{ elixir('js/all.js') }}"></script>--}}
+<script src="{{ asset('/js/app.js') }}"></script>
 
 {{-- TODO: Incorporate into elixir workflow. --}}
 <script src="{{asset('assets/site/js/jquery.justifiedGallery.min.js')}}"></script>

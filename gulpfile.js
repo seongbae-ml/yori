@@ -21,15 +21,18 @@ var lessPaths = [
 
 elixir(function(mix) {
     mix.less('app.less', 'public/css', { paths: lessPaths })
-    	.scripts([
+    	.styles(['../assets/vendor/select2/dist/css/select2.min.css'])
+		.scripts([
             'jquery/dist/jquery.min.js',
             'jquery-ui/jquery-ui.min.js',
             'bootstrap/dist/js/bootstrap.min.js',
-            'bootstrap-select/dist/js/bootstrap-select.min.js'
+            'bootstrap-select/dist/js/bootstrap-select.min.js',
+            'select2/dist/js/select2.min.js'
             ], 'public/js/vendor.js', bowerDir)
         .copy('resources/assets/js/app.js', 'public/js/app.js')
         .copy(bowerDir + 'font-awesome/fonts', 'public/fonts')
-     
+        .copy
+
         ;
  
 });

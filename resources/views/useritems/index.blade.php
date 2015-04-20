@@ -22,8 +22,8 @@
         <thead>
         <tr>
             <th>Name</th>
+            <th>Category</th>
             <th>Expires</th>
-            <th>Purchased</th>
             <th>Action</th>
         </tr>
 
@@ -33,12 +33,13 @@
             @foreach( $useritems as $useritem )
                 <tr>
                     <td><a href="{{ route('useritems.show', $useritem->id) }}">{{ $useritem->name }}</a></td>
+                    <td></td>
                     <td>{{ $useritem->expire_date }}</td>
-                    <td>{{ $useritem->purchase_date }}</td>
                     <td>{!! Form::model($useritem, ['method' => 'DELETE', 'route' => ['useritems.destroy', $useritem->id]]) !!}
                             <a href="/useritems/{{ $useritem->id }}/edit" class="btn btn-success btn-sm iframe cboxElement"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
                             <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-danger btn-sm iframe cboxElement"><span class="glyphicon glyphicon-trash"></span>  Delete</a>
                         {!! Form::close() !!}
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
+
 class UserItemsController extends Controller {
 
 	public function __construct()
@@ -44,7 +45,7 @@ class UserItemsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateUserItemRequest $request)
+	public function store(\App\Http\Requests\CreateUserItemRequest $request)
 	{
 		//
 

@@ -33,4 +33,34 @@ class HomeController extends Controller {
 		return view('home');
 	}
 
+	/**
+	 * Show the application dashboard to the user.
+	 *
+	 * @return Response
+	 */
+	public function help()
+	{
+		return view('pages.help');
+	}
+
+	/**
+	 * Show the application dashboard to the user.
+	 *
+	 * @return Response
+	 */
+	public function about()
+	{
+		return view('pages.about');
+	}
+
+	/**
+	 * Show the application dashboard to the user.
+	 *
+	 * @return Response
+	 */
+	public function settings()
+	{
+		return view('pages.settings');
+	}
+
 }

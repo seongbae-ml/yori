@@ -1,6 +1,7 @@
 <?php namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Contracts\Auth\Guard;
 
 class CreateUserItemRequest extends Request {
 
@@ -9,9 +10,17 @@ class CreateUserItemRequest extends Request {
 	 *
 	 * @return bool
 	 */
-	public function authorize()
+	public function authorize(Guard $auth)
 	{
-		return false;
+		if ($auth->user())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
 	}
 
 	/**
@@ -22,8 +31,15 @@ class CreateUserItemRequest extends Request {
 	public function rules()
 	{
 		return [
-			//
+			'name' => 'required'
 		];
 	}
+
+	public function messages()
+{
+    return [
+        'name.required' => 'Please enter name.'
+    ];
+}
 
 }

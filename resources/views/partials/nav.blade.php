@@ -13,17 +13,17 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ (Request::is('/') ? 'active' : '') }}">
-                    <a href="{!! URL::to('useritems') !!}"><i class="fa fa-user"></i> My Refridgerator</a>
-                </li>
-                <li class="{{ (Request::is('mydishes') ? 'active' : '') }}">
-                    <a href="{!! URL::to('mydishes') !!}"><i class="fa fa-cutlery"></i> My Dishes</a>
+                <li class="{{ (Request::is('useritems') ? 'active' : '') }}">
+                    <a href="{!! URL::to('useritems') !!}"><i class="fa fa-user"></i> My Items</a>
                 </li>
                 <li class="{{ (Request::is('settings') ? 'active' : '') }}">
                     <a href="{!! URL::to('settings') !!}"><i class="fa fa-cog fa-fw"></i> Settings</a>
                 </li>
-                <li class="{{ (Request::is('contact') ? 'active' : '') }}">
-                    <a href="{!! URL::to('contact') !!}"><i class="fa fa-question-circle"></i> Help</a>
+                <li class="{{ (Request::is('help') ? 'active' : '') }}">
+                    <a href="{!! URL::to('help') !!}"><i class="fa fa-question-circle"></i> Help</a>
+                </li>
+                <li class="{{ (Request::is('about') ? 'active' : '') }}">
+                    <a href="{!! URL::to('about') !!}"><i class="fa fa-info-circle"></i> About</a>
                 </li>
             </ul>
 
@@ -42,9 +42,6 @@
                             @if(Auth::check())
                                 <li role="presentation" class="divider"></li>
                             @endif
-                            <li>
-                                <i class="fa fa-sign-out"></i> Logout
-                            </li>
                             <li>
                                 <a href="{!! URL::to('auth/logout') !!}"><i class="fa fa-sign-out"></i> Logout</a>
                             </li>

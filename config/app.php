@@ -136,6 +136,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
+
+		'yajra\Datatables\DatatablesServiceProvider',
 		
 		/*
 		 * Application Service Providers...
@@ -170,6 +172,7 @@ return [
 		'Config'    => 'Illuminate\Support\Facades\Config',
 		'Cookie'    => 'Illuminate\Support\Facades\Cookie',
 		'Crypt'     => 'Illuminate\Support\Facades\Crypt',
+		'Datatables'      => 'yajra\Datatables\Datatables',
 		'DB'        => 'Illuminate\Support\Facades\DB',
 		'Eloquent'  => 'Illuminate\Database\Eloquent\Model',
 		'Event'     => 'Illuminate\Support\Facades\Event',

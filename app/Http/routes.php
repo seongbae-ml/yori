@@ -12,8 +12,10 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'HomeController@index');
+Route::get('help', 'HomeController@help');
+Route::get('about', 'HomeController@about');
+Route::get('settings', 'HomeController@settings');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -36,7 +38,8 @@ Route::match(['get','post'],'seong', function()
 	);
 
 Route::resource('categories','CategoriesController');
-//Route::resource('items','ItemsController');
+//Route::resource('items','ItemController');
+Route::get('items/data', 'ItemController@data');
 Route::resource('useritems','UserItemsController');
 Route::resource('mydishes','MyDishController');
 Route::resource('categories.items', 'ItemsController');
