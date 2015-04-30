@@ -20,14 +20,24 @@ class MyDishController extends Controller {
 	 */
 	public function index()
 	{
-		//
 		$mydishes = MyDish::all();
 
 		$client = new \GuzzleHttp\Client();
-		$response = $client->get('http://api.github.com/users/antonioribeiro');
-		$body = $response->getBody();
+		$response = $client->get('http://api.bigoven.com/recipes?title_kw=oysters&pg=1&rpp=20&api_key=dvxm34R5bZ0MOjnF016kZc99XV9SPXwK');
+		$bodyVal = $response->getBody();
+		
+		$app = new \Illuminate\Container\Container;
+		$document = new \Orchestra\Parser\Xml\Document($app);
+		$reader = new \Orchestra\Parser\Xml\Reader($document);
 
-		return view('mydishes.index', compact('mydishes,','body'));
+		$xml = $reader->extract($bodyVal);
+		
+		$recipes = $xml->parse([
+		    'id' => ['uses' => 'RecipeInfo.RecipeID'],
+		    'title' => ['uses' => 'RecipeInfo.Title']
+		]);
+
+		return view('mydishes.index', compact('response','bodyVal','recipes'));
 	}
 
 	/**

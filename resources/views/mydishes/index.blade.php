@@ -19,13 +19,9 @@
         </h3>
     </div>
 
-	@if ( !$mydishes->count() )
-        You have no items
-    @else
-        <ul>
-            @foreach( $mydishes as $mydish )
-            
-            @endforeach
-        </ul>
-    @endif
+	<p>{{ $response }}</p>
+    <hr/>
+    <p>{{ print_r($bodyVal) }}</p>
+    <hr/>
+    <p>{{ print_r($recipes) }}</p>
 @endsection

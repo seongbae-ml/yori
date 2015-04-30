@@ -16,9 +16,6 @@
                 <li class="{{ (Request::is('useritems') ? 'active' : '') }}">
                     <a href="{!! URL::to('useritems') !!}"><i class="fa fa-user"></i> My Items</a>
                 </li>
-                <li class="{{ (Request::is('settings') ? 'active' : '') }}">
-                    <a href="{!! URL::to('settings') !!}"><i class="fa fa-cog fa-fw"></i> Settings</a>
-                </li>
                 <li class="{{ (Request::is('help') ? 'active' : '') }}">
                     <a href="{!! URL::to('help') !!}"><i class="fa fa-question-circle"></i> Help</a>
                 </li>
@@ -42,6 +39,9 @@
                             @if(Auth::check())
                                 <li role="presentation" class="divider"></li>
                             @endif
+                            <li>
+                                <a href="{!! URL::to('settings') !!}"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                            </li>
                             <li>
                                 <a href="{!! URL::to('auth/logout') !!}"><i class="fa fa-sign-out"></i> Logout</a>
                             </li>

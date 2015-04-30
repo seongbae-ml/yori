@@ -138,6 +138,7 @@ return [
 		'Illuminate\Html\HtmlServiceProvider',
 
 		'yajra\Datatables\DatatablesServiceProvider',
+		'Orchestra\Parser\XmlServiceProvider',
 		
 		/*
 		 * Application Service Providers...

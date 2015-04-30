@@ -7,15 +7,16 @@
 
     <title>@section('title') Yori @show</title>
     @section('meta_keywords')
-        <meta name="keywords" content="your, awesome, keywords, here"/>
+        <meta name="keywords" content="yori, cooking, frugal, foodie"/>
     @show @section('meta_author')
-        <meta name="author" content="Jon Doe"/>
+        <meta name="author" content="Seong Bae"/>
     @show @section('meta_description')
         <meta name="description"
-              content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
+              content="Never waste food!"/>
     @show
 
 		<link href="{{ asset('/css/all.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     {{--<link href="{{elixir('css/all.css')}}" rel="stylesheet">--}}
 
     {{-- TODO: Incorporate into elixer workflow. --}}

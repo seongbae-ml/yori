@@ -21,7 +21,7 @@ var lessPaths = [
 
 elixir(function(mix) {
     mix.less('app.less', 'public/css', { paths: lessPaths })
-    	.styles(['../assets/vendor/select2/dist/css/select2.min.css'])
+    	.styles(['../assets/vendor/select2/dist/css/select2.min.css','custom.css'])
 		.scripts([
             'jquery/dist/jquery.min.js',
             'jquery-ui/jquery-ui.min.js',
