@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace yori;
 
 use Illuminate\Database\Eloquent\Model;
 

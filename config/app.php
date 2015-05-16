@@ -139,15 +139,16 @@ return [
 
 		'yajra\Datatables\DatatablesServiceProvider',
 		'Orchestra\Parser\XmlServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 		
 		/*
 		 * Application Service Providers...
 		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'yori\Providers\AppServiceProvider',
+		'yori\Providers\BusServiceProvider',
+		'yori\Providers\ConfigServiceProvider',
+		'yori\Providers\EventServiceProvider',
+		'yori\Providers\RouteServiceProvider',
 
 	],
 
@@ -175,6 +176,7 @@ return [
 		'Crypt'     => 'Illuminate\Support\Facades\Crypt',
 		'Datatables'      => 'yajra\Datatables\Datatables',
 		'DB'        => 'Illuminate\Support\Facades\DB',
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 		'Eloquent'  => 'Illuminate\Database\Eloquent\Model',
 		'Event'     => 'Illuminate\Support\Facades\Event',
 		'File'      => 'Illuminate\Support\Facades\File',

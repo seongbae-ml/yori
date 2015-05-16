@@ -1,4 +1,4 @@
-<?php namespace App\Providers;
+<?php namespace yori\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'App\Http\Controllers';
+	protected $namespace = 'yori\Http\Controllers';
 
 	/**
 	 * Define your route model bindings, pattern filters, etc.
@@ -26,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider {
 
 		//
 
-		$router->model('useritem', 'App\UserItem');
+		$router->model('useritem', 'yori\UserItem');
 	}
 
 	/**

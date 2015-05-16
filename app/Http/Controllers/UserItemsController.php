@@ -1,10 +1,10 @@
-<?php namespace App\Http\Controllers;
+<?php namespace yori\Http\Controllers;
 
 use Log;
-use App\Form;
-use App\UserItem;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use yori\Form;
+use yori\UserItem;
+use yori\Http\Requests;
+use yori\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -45,7 +45,7 @@ class UserItemsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(\App\Http\Requests\CreateUserItemRequest $request)
+	public function store(\yori\Http\Requests\CreateUserItemRequest $request)
 	{
 		//
 

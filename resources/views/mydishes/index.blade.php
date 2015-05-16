@@ -24,4 +24,14 @@
     <p>{{ print_r($bodyVal) }}</p>
     <hr/>
     <p>{{ print_r($recipes) }}</p>
+
+    @if ( $recipes == null )
+        You have no items
+    @else
+        <p>{{ print_r($recipes) }}</p>
+        @foreach ($recipes as $recipe)
+            <p>{{ print_r($recipe) }}</p>
+        @endforeach
+    @endif
+
 @endsection

@@ -1,10 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php namespace yori\Http\Controllers;
 
-use App\MyDish;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use yori\MyDish;
+use yori\Http\Requests;
+use yori\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Debugbar;
 
 class MyDishController extends Controller {
 
@@ -31,11 +32,15 @@ class MyDishController extends Controller {
 		$reader = new \Orchestra\Parser\Xml\Reader($document);
 
 		$xml = $reader->extract($bodyVal);
+
+		Debugbar::info($xml);
 		
 		$recipes = $xml->parse([
 		    'id' => ['uses' => 'RecipeInfo.RecipeID'],
 		    'title' => ['uses' => 'RecipeInfo.Title']
 		]);
+
+		Debugbar::info($recipes);
 
 		return view('mydishes.index', compact('response','bodyVal','recipes'));
 	}

@@ -1,7 +1,7 @@
-<?php namespace App\Http\Controllers;
+<?php namespace yori\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use yori\Http\Requests;
+use yori\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
