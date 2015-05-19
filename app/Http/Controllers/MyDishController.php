@@ -25,12 +25,14 @@ class MyDishController extends Controller {
 		$query = Input::get('query');
 		
 		$mydishes = MyDish::all();
+		$bigovenkey = getenv('BIGOVEN_API_KEY');
+		Debugbar::info($bigovenkey);
 
 		$client = new \GuzzleHttp\Client();
-		$response = $client->get('http://api.bigoven.com/recipes?title_kw=' . $query . '&pg=1&rpp=20&api_key=dvxm34R5bZ0MOjnF016kZc99XV9SPXwK');
+		$response = $client->get('http://api.bigoven.com/recipes?title_kw=' . $query . '&pg=1&rpp=20&api_key=' . $bigovenkey);
 		
-		Debugbar::info($response->getStatusCode());
-		Debugbar::info($response->getHeader('content-type'));
+		//Debugbar::info($response->getStatusCode());
+		//Debugbar::info($response->getHeader('content-type'));
 
 		$xmlData = $response->xml();
 		Debugbar::info($xmlData);
