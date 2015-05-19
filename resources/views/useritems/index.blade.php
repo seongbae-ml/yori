@@ -36,7 +36,7 @@
                     <td></td>
                     <td>{{ $useritem->expire_date }}</td>
                     <td>{!! Form::model($useritem, ['method' => 'DELETE', 'route' => ['useritems.destroy', $useritem->id]]) !!}
-                            <a href="/mydishes" class="btn btn-primary btn-sm iframe cboxElement"><span class="glyphicon glyphicon-heart"></span>  Find Dishes</a>
+                            <a href="/mydishes?query={{ $useritem->name }}" class="btn btn-primary btn-sm iframe cboxElement"><span class="glyphicon glyphicon-heart"></span>  Find Recipes</a>
                             <a href="/useritems/{{ $useritem->id }}/edit" class="btn btn-success btn-sm iframe cboxElement"><span class="glyphicon glyphicon-pencil"></span>  Edit</a>
                             <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-danger btn-sm iframe cboxElement"><span class="glyphicon glyphicon-trash"></span>  Delete</a>
                         {!! Form::close() !!}

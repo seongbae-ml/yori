@@ -1,4 +1,4 @@
-<?php namespace yori\Commands;
+<?php namespace App\Commands;
 
 abstract class Command {
 

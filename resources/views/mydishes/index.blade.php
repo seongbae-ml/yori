@@ -4,33 +4,16 @@
 
 	<div class="page-header">
         <h3>
-            My Items
-            <div class="pull-right">
-                <div class="pull-right">
-                    <a href="{{{ URL::to('admin/news/create') }}}"
-                       class="btn btn-sm  btn-primary iframe"><span
-                                class="glyphicon glyphicon-plus-sign"></span> Add New</a>
-
-                    <a href="{{{ URL::to('admin/news/create') }}}"
-                       class="btn btn-sm  btn-primary iframe"><span
-                                class="glyphicon glyphicon-plus-sign"></span> Find Dishes</a>
-                </div>
-            </div>
+            Recipes based on &quot;{{ html_entity_decode($query) }}&quot;
         </h3>
     </div>
 
-	<p>{{ $response }}</p>
-    <hr/>
-    <p>{{ print_r($bodyVal) }}</p>
-    <hr/>
-    <p>{{ print_r($recipes) }}</p>
-
-    @if ( $recipes == null )
-        You have no items
+	@if ( $recipes == null || count($recipes) == 0)
+        We could not find any recipes.
     @else
-        <p>{{ print_r($recipes) }}</p>
         @foreach ($recipes as $recipe)
-            <p>{{ print_r($recipe) }}</p>
+            <p><a href="{{ $recipe->WebURL }}" target="_blank">{{ $recipe->Title }}</a></p>
+            <a href="{{ $recipe->WebURL }}" target="_blank"><img src="{{ $recipe->ImageURL120 }}" /></a>
         @endforeach
     @endif
 

@@ -1,6 +1,6 @@
-<?php namespace yori\Http\Requests;
+<?php namespace App\Http\Requests;
 
-use yori\Http\Requests\Request;
+use App\Http\Requests\Request;
 use Illuminate\Contracts\Auth\Guard;
 
 class CreateUserItemRequest extends Request {

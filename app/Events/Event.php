@@ -1,4 +1,4 @@
-<?php namespace yori\Events;
+<?php namespace App\Events;
 
 abstract class Event {
 

@@ -4,13 +4,10 @@
 
 	<div class="page-header">
         <h3>
-            My Items
+            Add New Item
             <div class="pull-right">
                 <div class="pull-right">
-                    <a href="{{{ URL::to('useritems/create') }}}"
-                       class="btn btn-sm  btn-primary iframe"><span
-                                class="glyphicon glyphicon-plus-sign"></span> Add New</a>
-
+                    
                 </div>
             </div>
         </h3>

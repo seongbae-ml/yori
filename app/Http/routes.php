@@ -57,7 +57,7 @@ Route::post('useritems/{id}/delete', 'UserItemsController@delete');
 */
 
 /*
-Route::get('useritems/{useritems}', function(yori\UserItem $useritem)
+Route::get('useritems/{useritems}', function(App\UserItem $useritem)
 {
     //
 });

@@ -1,8 +1,9 @@
-<?php namespace yori\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use yori\MyDish;
-use yori\Http\Requests;
-use yori\Http\Controllers\Controller;
+use App\MyDish;
+use Input;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Debugbar;
@@ -21,28 +22,22 @@ class MyDishController extends Controller {
 	 */
 	public function index()
 	{
+		$query = Input::get('query');
+		
 		$mydishes = MyDish::all();
 
 		$client = new \GuzzleHttp\Client();
-		$response = $client->get('http://api.bigoven.com/recipes?title_kw=oysters&pg=1&rpp=20&api_key=dvxm34R5bZ0MOjnF016kZc99XV9SPXwK');
-		$bodyVal = $response->getBody();
+		$response = $client->get('http://api.bigoven.com/recipes?title_kw=' . $query . '&pg=1&rpp=20&api_key=dvxm34R5bZ0MOjnF016kZc99XV9SPXwK');
 		
-		$app = new \Illuminate\Container\Container;
-		$document = new \Orchestra\Parser\Xml\Document($app);
-		$reader = new \Orchestra\Parser\Xml\Reader($document);
+		Debugbar::info($response->getStatusCode());
+		Debugbar::info($response->getHeader('content-type'));
 
-		$xml = $reader->extract($bodyVal);
+		$xmlData = $response->xml();
+		Debugbar::info($xmlData);
 
-		Debugbar::info($xml);
+		$recipes = $xmlData->Results->RecipeInfo;
 		
-		$recipes = $xml->parse([
-		    'id' => ['uses' => 'RecipeInfo.RecipeID'],
-		    'title' => ['uses' => 'RecipeInfo.Title']
-		]);
-
-		Debugbar::info($recipes);
-
-		return view('mydishes.index', compact('response','bodyVal','recipes'));
+		return view('mydishes.index', compact('query','recipes'));
 	}
 
 	/**

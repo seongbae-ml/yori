@@ -1,4 +1,4 @@
-<?php namespace yori\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 class WelcomeController extends Controller {
 

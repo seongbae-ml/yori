@@ -1,4 +1,4 @@
-<?php namespace yori\Providers;
+<?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
